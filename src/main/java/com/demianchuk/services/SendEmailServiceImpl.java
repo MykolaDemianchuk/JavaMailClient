@@ -1,14 +1,12 @@
 package com.demianchuk.services;
 
 import com.demianchuk.model.MailClient;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import org.apache.log4j.Logger;
+import javax.mail.*;
+import javax.mail.internet.*;
 
 public class SendEmailServiceImpl implements SendEmailService {
+    private static final Logger LOGGER = Logger.getLogger(SendEmailServiceImpl.class);
 
     @Override
     public void sendEmail(MailClient client, String addressList,
@@ -31,7 +29,6 @@ public class SendEmailServiceImpl implements SendEmailService {
     }
 
     class SendEmailThread implements Runnable {
-
         private Message email;
 
         protected SendEmailThread(Message email) {
@@ -43,7 +40,7 @@ public class SendEmailServiceImpl implements SendEmailService {
             try {
                 Transport.send(email);
             } catch (MessagingException e) {
-                e.printStackTrace();
+                LOGGER.warn(e.getMessage(), e);
             }
         }
     }

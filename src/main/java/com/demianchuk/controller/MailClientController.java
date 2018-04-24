@@ -43,6 +43,10 @@ public class MailClientController {
             try {
                 if (clientView.getRecipient().isEmpty())
                     throw new Exception("Add at least 1 recipient!");
+                if(clientView.getSubject().isEmpty())
+                    throw new Exception("Your message has no subject!");
+                if(clientView.getEmailBody().isEmpty())
+                    throw new Exception("Your email body has no content!");
                 ValidatorUtil.validate(clientView.getRecipient());
                 client.sendEmail(clientView.getRecipient(), clientView.getSubject(), clientView.getEmailBody());
                 DialogBox.displayInfoMessage(clientView, "Email will be delivered shortly");

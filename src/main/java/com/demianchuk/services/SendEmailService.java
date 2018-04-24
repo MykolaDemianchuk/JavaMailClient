@@ -1,8 +1,8 @@
 package com.demianchuk.services;
 
-import javax.mail.Session;
+import com.demianchuk.model.MailClient;
 
 public interface SendEmailService {
-    void sendEmail(Session session, String addressList,
-                          String subject, String emailBody) throws Exception;
+    void sendEmail(MailClient client, String addressList,
+                   String subject, String emailBody) throws Exception;
 }

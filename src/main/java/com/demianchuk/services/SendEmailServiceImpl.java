@@ -1,8 +1,9 @@
 package com.demianchuk.services;
 
+import com.demianchuk.model.MailClient;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -10,10 +11,15 @@ import javax.mail.internet.MimeMessage;
 public class SendEmailServiceImpl implements SendEmailService {
 
     @Override
-    public void sendEmail(Session session, String addressList,
+    public void sendEmail(MailClient client, String addressList,
                           String subject, String emailBody) throws Exception {
-
-        Message email = new MimeMessage(session);
+        if (addressList.isEmpty())
+            throw new Exception("Add at least 1 recipient!");
+        if(subject.isEmpty())
+            throw new Exception("Your message has no subject!");
+        if(emailBody.isEmpty())
+            throw new Exception("Your email body has no content!");
+        Message email = new MimeMessage(client.getSession());
         email.setSubject(subject);
         email.setText(emailBody);
         try {

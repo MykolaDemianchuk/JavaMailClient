@@ -1,6 +1,9 @@
 package com.demianchuk.controller;
 
 import com.demianchuk.model.MailClient;
+import com.demianchuk.services.SendEmailServiceImpl;
+import com.demianchuk.services.SignInService;
+import com.demianchuk.services.SignInServiceImpl;
 import com.demianchuk.util.ValidatorUtil;
 import com.demianchuk.views.ClientView;
 import com.demianchuk.views.DialogBox;
@@ -27,7 +30,7 @@ public class MailClientController {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                client.signIn(signInView.getUsername(), signInView.getPassword());
+                new SignInServiceImpl().signIn(client, signInView.getUsername(), signInView.getPassword());
                 signInView.hideWindow();
                 clientView.displayWindow();
                 clientView.setSender(signInView.getUsername());
@@ -41,14 +44,8 @@ public class MailClientController {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                if (clientView.getRecipient().isEmpty())
-                    throw new Exception("Add at least 1 recipient!");
-                if(clientView.getSubject().isEmpty())
-                    throw new Exception("Your message has no subject!");
-                if(clientView.getEmailBody().isEmpty())
-                    throw new Exception("Your email body has no content!");
                 ValidatorUtil.validate(clientView.getRecipient());
-                client.sendEmail(clientView.getRecipient(), clientView.getSubject(), clientView.getEmailBody());
+                new SendEmailServiceImpl().sendEmail(client, clientView.getRecipient(), clientView.getSubject(), clientView.getEmailBody());
                 DialogBox.displayInfoMessage(clientView, "Email will be delivered shortly");
             } catch (Exception ex) {
                 DialogBox.displayErrorMessage(clientView, ex.getMessage());

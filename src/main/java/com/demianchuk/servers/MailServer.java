@@ -3,6 +3,7 @@ package com.demianchuk.servers;
 import java.util.Properties;
 
 public class MailServer {
+
     private String name;
     private Properties properties;
 

@@ -1,8 +1,8 @@
 package com.demianchuk.model;
 
-import com.demianchuk.servers.MailServer;
-import org.apache.log4j.Logger;
 import javax.mail.*;
+import org.apache.log4j.Logger;
+import com.demianchuk.servers.MailServer;
 
 public class MailClient {
     private static final Logger LOGGER = Logger.getLogger(MailClient.class);

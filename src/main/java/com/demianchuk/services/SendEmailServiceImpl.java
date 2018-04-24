@@ -1,9 +1,9 @@
 package com.demianchuk.services;
 
-import com.demianchuk.model.MailClient;
-import org.apache.log4j.Logger;
 import javax.mail.*;
 import javax.mail.internet.*;
+import org.apache.log4j.Logger;
+import com.demianchuk.model.MailClient;
 
 public class SendEmailServiceImpl implements SendEmailService {
     private static final Logger LOGGER = Logger.getLogger(SendEmailServiceImpl.class);

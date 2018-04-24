@@ -1,10 +1,8 @@
 package com.demianchuk.services;
 
-import com.demianchuk.model.MailClient;
+import javax.mail.*;
 import org.apache.log4j.Logger;
-
-import javax.mail.AuthenticationFailedException;
-import javax.mail.MessagingException;
+import com.demianchuk.model.MailClient;
 
 public class SignInServiceImpl implements SignInService {
     private static final Logger LOGGER = Logger.getLogger(SendEmailServiceImpl.class);

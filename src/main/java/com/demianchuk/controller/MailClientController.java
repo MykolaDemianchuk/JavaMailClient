@@ -1,14 +1,9 @@
 package com.demianchuk.controller;
 
+import com.demianchuk.views.*;
+import com.demianchuk.services.*;
 import com.demianchuk.model.MailClient;
-import com.demianchuk.services.SendEmailServiceImpl;
-import com.demianchuk.services.SignInService;
-import com.demianchuk.services.SignInServiceImpl;
 import com.demianchuk.util.ValidatorUtil;
-import com.demianchuk.views.ClientView;
-import com.demianchuk.views.DialogBox;
-import com.demianchuk.views.SignInView;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

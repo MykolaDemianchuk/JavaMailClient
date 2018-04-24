@@ -90,10 +90,10 @@ public class ClientView extends JFrame {
     }
 
     public String getEmailBody() {
-        return emailArea.getText();
+        return emailArea.getText().trim();
     }
 
     public String getSubject() {
-        return subjectField.getText();
+        return subjectField.getText().trim();
     }
 }

@@ -1,9 +1,11 @@
 package com.demianchuk.model;
 
 import com.demianchuk.servers.MailServer;
+import org.apache.log4j.Logger;
 import javax.mail.*;
 
 public class MailClient {
+    private static final Logger LOGGER = Logger.getLogger(MailClient.class);
 
     private MailServer server;
     private Authenticator authenticator;
@@ -31,7 +33,7 @@ public class MailClient {
         try {
             transport = session.getTransport();
         } catch (NoSuchProviderException e) {
-            e.printStackTrace();
+            LOGGER.warn(e.getMessage(), e);
         }
         return transport;
     }

@@ -1,9 +1,10 @@
 package com.demianchuk;
 
+import com.demianchuk.controller.SendEmailController;
+import com.demianchuk.controller.SignInController;
 import com.demianchuk.model.*;
-import com.demianchuk.views.*;
-import com.demianchuk.controller.MailClientController;
-import com.demianchuk.servers.GmailServer;
+import com.demianchuk.server.MailServer;
+import com.demianchuk.view.*;
 
 public class App {
 
@@ -12,7 +13,17 @@ public class App {
     }
 
     private void go() {
-        MailClient gmailClient = new MailClient(new GmailServer());
-        new MailClientController(gmailClient, new SignInView(), new ClientView());
+
+        // change accordingly [Gmail, Yahoo]
+        MailServer server = new xxxServer();
+
+        // creating a client for particular server
+        Client client = new Client(server);
+
+        SignInView signInView = new SignInView();
+        SendEmailView sendEmailView = new SendEmailView();
+
+        new SignInController(client, signInView, sendEmailView);
+        new SendEmailController(client, sendEmailView);
     }
 }

@@ -1,7 +1,8 @@
-package com.demianchuk.servers;
+package com.demianchuk.server;
 
 public class YahooServer extends MailServer {
+
     public YahooServer() {
-        super("Yahoo","smtp.mail.yahoo.com");
+        super("smtp.mail.yahoo.com");
     }
 }

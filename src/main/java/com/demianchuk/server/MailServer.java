@@ -1,14 +1,12 @@
-package com.demianchuk.servers;
+package com.demianchuk.server;
 
 import java.util.Properties;
 
 public class MailServer {
 
-    private String name;
     private Properties properties;
 
-    protected MailServer(String name, String host) {
-        this.name = name;
+    protected MailServer(String host) {
         properties = new Properties();
         properties.put("mail.smtp.ssl.trust", host);
         properties.put("mail.smtp.auth", true);
@@ -19,9 +17,5 @@ public class MailServer {
 
     public Properties getProperties() {
         return properties;
-    }
-
-    public String getName() {
-        return name;
     }
 }

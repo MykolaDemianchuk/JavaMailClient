@@ -1,7 +1,8 @@
-package com.demianchuk.servers;
+package com.demianchuk.server;
 
 public class GmailServer extends MailServer {
+
     public GmailServer() {
-        super("Gmail","smtp.gmail.com");
+        super("smtp.gmail.com");
     }
 }

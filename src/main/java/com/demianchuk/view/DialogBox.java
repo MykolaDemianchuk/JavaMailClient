@@ -1,10 +1,12 @@
-package com.demianchuk.views;
+package com.demianchuk.view;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class DialogBox {
-    private DialogBox(){}
+
+    private DialogBox() {
+    }
 
     public static void displayInfoMessage(Component component, String message) {
         JOptionPane.showMessageDialog(component, message);

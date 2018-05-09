@@ -1,9 +1,10 @@
-package com.demianchuk.views;
+package com.demianchuk.view;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class SignInView extends JFrame {
+
     private JPanel thePanel;
     private JLabel usernameLabel;
     private JLabel passwordLabel;

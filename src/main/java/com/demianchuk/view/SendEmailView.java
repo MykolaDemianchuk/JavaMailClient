@@ -1,21 +1,21 @@
-package com.demianchuk.views;
+package com.demianchuk.view;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-public class ClientView extends JFrame {
+public class SendEmailView extends JFrame {
     private JPanel thePanel;
     private JLabel fromLabel;
     private JLabel toLabel;
     private JLabel subjectLabel;
     private JTextField fromField;
     private JTextField subjectField;
-    private JTextField toField;
+    private JTextField recipientsField;
     private JScrollPane theScrollPane;
     private JTextArea emailArea;
     private JButton sendButton;
 
-    public ClientView() {
+    public SendEmailView() {
         initialize();
     }
 
@@ -29,9 +29,9 @@ public class ClientView extends JFrame {
         subjectLabel = new JLabel("Subject");
         fromField = new JTextField();
         fromField.setEditable(false);
-        toField = new JTextField();
+        recipientsField = new JTextField();
         subjectField = new JTextField();
-        emailArea = new JTextArea(15,50);
+        emailArea = new JTextArea(15, 50);
         theScrollPane = new JScrollPane(emailArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         sendButton = new JButton("Send");
@@ -48,7 +48,7 @@ public class ClientView extends JFrame {
                                 .addComponent(subjectLabel))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                                 .addComponent(fromField)
-                                .addComponent(toField)
+                                .addComponent(recipientsField)
                                 .addComponent(subjectField)))
                 .addComponent(theScrollPane)
                 .addComponent(sendButton)
@@ -60,7 +60,7 @@ public class ClientView extends JFrame {
                         .addComponent(fromField))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(toLabel)
-                        .addComponent(toField))
+                        .addComponent(recipientsField))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(subjectLabel)
                         .addComponent(subjectField))
@@ -85,8 +85,8 @@ public class ClientView extends JFrame {
         fromField.setText(sender);
     }
 
-    public String getRecipient() {
-        return toField.getText().trim();
+    public String getRecipients() {
+        return recipientsField.getText().trim();
     }
 
     public String getEmailBody() {

@@ -3,6 +3,7 @@ package com.demianchuk;
 import com.demianchuk.controller.SendEmailController;
 import com.demianchuk.controller.SignInController;
 import com.demianchuk.model.*;
+import com.demianchuk.server.GmailServer;
 import com.demianchuk.server.MailServer;
 import com.demianchuk.view.*;
 
@@ -14,10 +15,11 @@ public class App {
 
     private void go() {
 
-        // change accordingly [Gmail, Yahoo]
+       /*
+        * Replace xxx with Gmail or Yahoo accordingly
+        */
         MailServer server = new xxxServer();
 
-        // creating a client for particular server
         Client client = new Client(server);
 
         SignInView signInView = new SignInView();
